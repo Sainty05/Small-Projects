@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+</head>
+
+<body>
+    <div><h1>Add Employees Name</h1></div>
+    <p>First Name: <input type="text" id="toCheck"></p>
+    <p>Last Name: <input type="text" id="toCheck1"></p>
+    <button onclick="myFunction()">Add Employee</button>
+    <hr><hr><hr>
+    <h3>*List Of Employees*</h3>
+    <p id="demo"></p>
+    <script>
+        //let text = "";
+        const fullname = [];
+        function checkValue(x) {
+            return x = document.getElementById("toCheck").value;
+        }
+        function checkValue1(y) {
+            return y = document.getElementById("toCheck1").value;
+        }
+
+        function myFunction() {
+            if (checkValue() != "" && checkValue1() != "") {
+                let text = ""
+                let a = checkValue() + " " + checkValue1()
+                fullname.push(a)
+                fullname.forEach(function (item, index) {
+                    text += "Employee-" + (index + 1) + ": " + item + "<hr>";
+                });
+                document.getElementById("demo").innerHTML = text;
+                document.getElementById("toCheck").value = ""
+                document.getElementById("toCheck1").value = ""
+            } else {
+                alert("Enter Full Name")
+            }
+        }
+    </script>
+
+</body>
+
+</html>

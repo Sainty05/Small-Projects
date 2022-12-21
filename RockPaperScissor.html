@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+
+<body>
+    <h1>Rock - Paper - Scissors</h1>
+    <div style="background-color:aqua ; color: black;height: 150px; padding: 25px; width: 300px;">
+        <input type="text" id="Opt">
+        <input type="button" value="Click" onclick="guess()">
+        <p id="c"></p>
+        <p id="print"></p>
+    </div>
+    <script>
+
+        let arr = ["R", "P", "S"]
+
+        // let CPU = "P"
+        //document.write(randomName)
+        function userInput(n) {
+            return n = document.getElementById("Opt").value
+        }
+        function guess() {
+            for (let i = 0; i < 3; i++) {
+                let Num = parseInt(Math.random() * arr.length)
+                let CPU = arr[Num]
+                document.getElementById("c").innerHTML = `CPU: ${CPU} <br> User: ${userInput()}`
+                if (CPU == userInput()) {
+                    document.getElementById("print").innerHTML = "Draw"
+                } else if (CPU == "R" && userInput() == "P") {
+                    document.getElementById("print").innerHTML = "You Won"
+                } else if (CPU == "P" && userInput() == "R") {
+                    document.getElementById("print").innerHTML = "CPU Won"
+                } else if (CPU == "P" && userInput() == "S") {
+                    document.getElementById("print").innerHTML = "You Won"
+                } else if (CPU == "S" && userInput() == "P") {
+                    document.getElementById("print").innerHTML = "CPU Won"
+                } else if (CPU == "S" && userInput() == "R") {
+                    document.getElementById("print").innerHTML = "You Won"
+                } else if (CPU == "R" && userInput() == "S") {
+                    document.getElementById("print").innerHTML = "CPU Won"
+                }
+                else {
+                    document.getElementById("print").innerHTML = "Choose Right option"
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
